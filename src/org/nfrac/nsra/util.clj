@@ -114,7 +114,7 @@
    (let [ixs (sort-by peek comp (map vector (range) xs))]
      (loop [ix-groups (partition-by peek ixs)
             orank 0
-            v-out (transient xs)]
+            v-out (transient (vec xs))]
        (if-let [group (first ix-groups)]
          (let [ranks (range (+ orank 1) (+ orank 1 (count group)))
                rank (mean ranks)]
